@@ -43,7 +43,7 @@ type IncreaseSpecificOptions struct {
 	TokenID *big.Int // Indicates the ID of the position to increase liquidity for
 }
 
-//  Options for producing the calldata to add liquidity
+// Options for producing the calldata to add liquidity
 type CommonAddLiquidityOptions struct {
 	SlippageTolerance *core.Percent  // How much the pool price is allowed to move
 	Deadline          *big.Int       // When the transaction expires, in epoch seconds
