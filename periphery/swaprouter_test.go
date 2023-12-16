@@ -5,11 +5,11 @@ import (
 	"testing"
 
 	core "github.com/daoleno/uniswap-sdk-core/entities"
-	"github.com/daoleno/uniswapv3-sdk/entities"
-	"github.com/daoleno/uniswapv3-sdk/utils"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/stretchr/testify/assert"
+	"github.com/vazha/uniswapv3-sdk/entities"
+	"github.com/vazha/uniswapv3-sdk/utils"
 )
 
 func TestSwapCallParametersSingleTradeInput(t *testing.T) {

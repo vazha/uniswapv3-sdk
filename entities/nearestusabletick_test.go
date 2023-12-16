@@ -3,8 +3,8 @@ package entities
 import (
 	"testing"
 
-	"github.com/daoleno/uniswapv3-sdk/utils"
 	"github.com/stretchr/testify/assert"
+	"github.com/vazha/uniswapv3-sdk/utils"
 )
 
 func TestNearestUsableTick(t *testing.T) {
