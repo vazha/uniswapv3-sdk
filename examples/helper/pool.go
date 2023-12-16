@@ -82,7 +82,7 @@ func ConstructV3Pool(client *ethclient.Client, token0, token1 *coreEntities.Toke
 		slot0.SqrtPriceX96, liquidity, int(slot0.Tick.Int64()), p)
 }
 
-func ConstructV3PoolOffline(client *ethclient.Client, poolAddr string, token0, token1 *coreEntities.Token, poolFee uint64) (*entities.Pool, error) {
+func ConstructV3PoolOffline(client *ethclient.Client, poolAddr string, token0, token1 *coreEntities.Token, poolFee uint64, SqrtPriceX96, liquidity *big.Int, Tick int) (*entities.Pool, error) {
 	//poolAddress, err := GetPoolAddress(client, token0.Address, token1.Address, new(big.Int).SetUint64(poolFee))
 	//if err != nil {
 	//	return nil, err
@@ -95,15 +95,15 @@ func ConstructV3PoolOffline(client *ethclient.Client, poolAddr string, token0, t
 		return nil, err
 	}
 
-	liquidity, err := contractPool.Liquidity(nil)
-	if err != nil {
-		return nil, err
-	}
-
-	slot0, err := contractPool.Slot0(nil)
-	if err != nil {
-		return nil, err
-	}
+	//liquidity, err := contractPool.Liquidity(nil)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//
+	//slot0, err := contractPool.Slot0(nil)
+	//if err != nil {
+	//	return nil, err
+	//}
 
 	pooltick, err := contractPool.Ticks(nil, big.NewInt(0))
 	if err != nil {
@@ -132,6 +132,5 @@ func ConstructV3PoolOffline(client *ethclient.Client, poolAddr string, token0, t
 		return nil, err
 	}
 
-	return entities.NewPool(token0, token1, constants.FeeAmount(poolFee),
-		slot0.SqrtPriceX96, liquidity, int(slot0.Tick.Int64()), p)
+	return entities.NewPool(token0, token1, constants.FeeAmount(poolFee), SqrtPriceX96, liquidity, Tick, p)
 }
